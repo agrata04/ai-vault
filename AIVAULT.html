@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Vault | Your Private Vault for Profitable AI Systems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0ea5e9;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --border: #cbd5e1;
+            --success: #10b981;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+            --factory-blue: #0c4a6e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            color: var(--gray);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-discord {
+            background: #5865F2;
+            border-color: #5865F2;
+        }
+
+        .btn-discord:hover {
+            background: #4752c4;
+        }
+
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 1.5rem; }
+        .mb-5 { margin-bottom: 2rem; }
+        .mt-5 { margin-top: 2rem; }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            color: var(--factory-blue);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.125rem;
+        }
+
+        .cta-button i {
+            font-size: 1.5rem;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        /* What You Get */
+        .benefits {
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 25px;
+            border-radius: 12px;
+            background: rgba(239, 246, 255, 0.5);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .benefit-item:hover {
+            background: rgba(37, 99, 235, 0.05);
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        /* How It Works */
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border: 3px solid white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.25rem;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            padding: 16px 40px;
+        }
+
+        .cta-section .btn:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: block;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Factory Badge */
+        .factory-badge {
+            display: inline-block;
+            background: var(--factory-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-industry"></i>
+                AI Tools Vault
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="factory-badge">PRIVATE VAULT</div>
+                <h1>Your Private Vault for Profitable AI Tools</h1>
+                <p>Discover, test, and profit from real AI systems used by agencies, founders, and automation builders — all inside one private Discord.</p>
+                <a href="https://discord.gg/zUafV49K" class="btn btn-discord cta-button">
+                    <i class="fab fa-discord"></i>
+                    Join AI Tools Vault
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is AI Tools Vault? -->
+    <section class="container">
+        <h2>What is AI Tools Vault?</h2>
+        <p class="text-center mb-5">AI Tools Vault is a private Discord where AI builders and business operators share:</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>High-performing SaaS tools</h3>
+                <p>Curated software that actually generates revenue and saves time.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>AI automation systems</h3>
+                <p>Workflows that replace manual work and run 24/7 to scale businesses.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h3>Client-getting prompts</h3>
+                <p>Prompts that help agencies acquire clients and close more deals.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Revenue-generating workflows</h3>
+                <p>Proven systems that create income with minimal ongoing effort.</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5" style="background: #f1f5f9; padding: 30px; border-radius: 12px; margin-top: 50px;">
+            <p style="font-size: 1.25rem; font-weight: 600; color: var(--dark); margin-bottom: 15px;">This is not a course.<br>This is not a YouTube community.<br><span style="color: var(--primary);">This is an AI operating system for making money.</span></p>
+        </div>
+    </section>
+
+    <!-- What You Get Instantly -->
+    <section class="benefits">
+        <div class="container">
+            <h2>What You Get Instantly (Free)</h2>
+            <p class="text-center mb-5">When you join, you unlock:</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Free AI tools</h3>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Lead-generation prompts</h3>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Automation templates</h3>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3>SaaS deal alerts</h3>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Case studies from real operators</h3>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5" style="font-size: 1.1rem; color: var(--gray);">
+                <p>No email gates. No sales calls. Just access.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Inside the Vault -->
+    <section class="container">
+        <h2>What's Inside the Vault</h2>
+        <p class="text-center mb-5">Inside the Discord you'll find:</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>🧠 AI Prompt Systems</h3>
+                <ul class="feature-list">
+                    <li>Get clients</li>
+                    <li>Follow up automatically</li>
+                    <li>Close more deals</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(249, 115, 22, 0.1); color: #f97316;">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>⚙ Automation Blueprints</h3>
+                <ul class="feature-list">
+                    <li>Replace manual work</li>
+                    <li>Run 24/7</li>
+                    <li>Scale businesses</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(14, 165, 233, 0.1); color: var(--secondary);">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>💼 SaaS Money Tools</h3>
+                <ul class="feature-list">
+                    <li>Generate revenue</li>
+                    <li>Save time</li>
+                    <li>Pay affiliates</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon" style="background: rgba(192, 132, 252, 0.1); color: #c084fc;">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>🚀 BrizBrainer AI</h3>
+                <ul class="feature-list">
+                    <li>Source code</li>
+                    <li>Bots</li>
+                    <li>AI systems you can resell or deploy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="container">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Join the Factory</h3>
+                <p>Click the Discord link and join our private community</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Use free AI tools</h3>
+                <p>Access all free resources immediately upon joining</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Unlock advanced systems</h3>
+                <p>Invite 3 people or activate a plan to get premium access</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Get full access</h3>
+                <p>Enjoy premium AI, prompts & software with no restrictions</p>
+            </div>
+        </div>
+        <div class="text-center mt-5" style="font-size: 1.1rem; color: var(--gray);">
+            <p>No spam. No noise. Only people building with AI.</p>
+        </div>
+    </section>
+
+    <!-- Why This Factory Exists -->
+    <section class="container">
+        <h2>Why This Factory Exists</h2>
+        <div class="text-center" style="max-width: 700px; margin: 0 auto 50px;">
+            <p style="font-size: 1.25rem; margin-bottom: 20px;">
+                Most AI communities talk.<br>
+                Most courses teach.<br>
+                <span style="color: var(--primary); font-weight: 700;">This Factory runs.</span>
+            </p>
+            <p>It's built for:</p>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon" style="background: var(--primary);">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Agency owners</h3>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon" style="background: var(--primary);">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>SaaS founders</h3>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon" style="background: var(--primary);">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>Automation builders</h3>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon" style="background: var(--primary);">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>AI entrepreneurs</h3>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5" style="font-size: 1.25rem; font-weight: 600; color: var(--dark);">
+            <p>People who want results, not hype.</p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join AI Tools Vault</h2>
+            <p>Access free AI tools, prompts, and money-making systems.</p>
+            <a href="https://discord.gg/zUafV49K" class="btn">
+                <i class="fab fa-discord"></i> Join Now on Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">AI Tools Factory</span>
+                <p>Your private vault for profitable AI systems</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p style="margin-top: 20px; color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+                    © 2026 AI Tools Vault. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
